@@ -1,0 +1,27 @@
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(8, 125, 179, 0.1);
+    background-color: rgba(7, 85, 173, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(2, 63, 143, 0.2);
+    background-color: rgba(10, 102, 114, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(92, 190, 246, 0.1);
+    background-color: rgba(16, 79, 121, 0.1);
+  }
+}
+
+.menu-item-active {
+  animation: glowPulse 3s ease-in-out infinite;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: rgb(9, 69, 109) !important;
+}
+
+.menu-item-active:hover {
+  animation: none;
+  background-color: rgba(22, 70, 99, 0.2);
+  box-shadow: 0 0 30px rgba(7, 84, 201, 0.3);
+}

@@ -1,0 +1,396 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-opacity-70;
+    background: rgba(10, 25, 47, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06),
+      inset 0 0 20px rgba(100, 255, 218, 0.05);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none !important;
+  }
+  body {
+    @apply bg-[#0a192f] text-[#8892b0];
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: none !important;
+  }
+}
+
+/* Futuristic Effects */
+.cyber-glitch {
+  position: relative;
+}
+
+.cyber-glitch::before,
+.cyber-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cyber-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #64ffda;
+  animation: cyber-glitch-1 2s infinite linear alternate-reverse;
+}
+
+.cyber-glitch::after {
+  left: -2px;
+  text-shadow: 2px 0 #64ffda;
+  animation: cyber-glitch-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes cyber-glitch-1 {
+  0% {
+    clip-path: inset(20% 0 30% 0);
+  }
+  20% {
+    clip-path: inset(60% 0 10% 0);
+  }
+  40% {
+    clip-path: inset(40% 0 50% 0);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+  }
+  80% {
+    clip-path: inset(10% 0 70% 0);
+  }
+  100% {
+    clip-path: inset(30% 0 20% 0);
+  }
+}
+
+@keyframes cyber-glitch-2 {
+  0% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  20% {
+    clip-path: inset(30% 0 20% 0);
+  }
+  40% {
+    clip-path: inset(50% 0 40% 0);
+  }
+  60% {
+    clip-path: inset(5% 0 80% 0);
+  }
+  80% {
+    clip-path: inset(70% 0 10% 0);
+  }
+  100% {
+    clip-path: inset(20% 0 30% 0);
+  }
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  box-shadow:
+    0 0 5px #64ffda,
+    0 0 10px #64ffda,
+    0 0 20px #64ffda,
+    0 0 40px #64ffda;
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Holographic Effect */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    rgba(100, 255, 218, 0.1) 0%,
+    rgba(100, 255, 218, 0.2) 25%,
+    rgba(100, 255, 218, 0.3) 50%,
+    rgba(100, 255, 218, 0.2) 75%,
+    rgba(100, 255, 218, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: holographic-shift 5s linear infinite;
+}
+
+@keyframes holographic-shift {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-rain::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(100, 255, 218, 0.1) 50%,
+    transparent 100%
+  );
+  animation: matrix-rain 2s linear infinite;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Smooth Animations */
+.smooth-transform {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.smooth-opacity {
+  @apply transition-opacity duration-300 ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1;
+}
+
+.hover-glow:hover {
+  @apply neon-glow;
+}
+
+/* Scrollbar Futurista */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #0a192f;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(100, 100, 100, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#6E3DD7, #4B6EE1, #28AAEB, #05E6F5);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  box-shadow: 0 0 15px rgba(40, 170, 235, 0.5);
+  animation: scrollbarGradient 2s linear infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#6E3DD7, #4B6EE1, #28AAEB, #05E6F5);
+  box-shadow: 0 0 20px rgba(40, 170, 235, 0.7);
+}
+
+/* Efeito de brilho na scrollbar ao rolar */
+@keyframes scrollbarGradient {
+  0% {
+    background: linear-gradient(#6E3DD7, #4B6EE1, #28AAEB, #05E6F5);
+  }
+  25% {
+    background: linear-gradient(#4B6EE1, #28AAEB, #05E6F5, #6E3DD7);
+  }
+  50% {
+    background: linear-gradient(#28AAEB, #05E6F5, #6E3DD7, #4B6EE1);
+  }
+  75% {
+    background: linear-gradient(#05E6F5, #6E3DD7, #4B6EE1, #28AAEB);
+  }
+  100% {
+    background: linear-gradient(#6E3DD7, #4B6EE1, #28AAEB, #05E6F5);
+  }
+}
+
+::-webkit-scrollbar-thumb:active {
+  animation: scrollGlow 1s ease-in-out infinite;
+}
+
+/* Fazer a scrollbar ficar mais fina em telas menores */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
+/* Efeito de Luzes */
+#wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto 0 auto;
+  overflow: hidden;
+}
+
+#lightings {
+  bottom: -30px;
+  position: absolute;
+  width: 100%;
+  opacity: 0.6;
+}
+
+#lightings section {
+  border-radius: 50%;
+  height: 15px;
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+#one {
+  animation: one 8s ease-in-out infinite alternate;
+}
+
+@keyframes one {
+  from { box-shadow: 0 0 100px 10px rgba(139, 92, 246, 0.4); }
+  to { box-shadow: 0 0 60px 8px rgba(139, 92, 246, 0.4); }
+}
+
+#two {
+  width: 90%;
+  animation: two 7s ease-in-out infinite alternate;
+}
+
+@keyframes two {
+  from { box-shadow: 0 0 100px 10px rgba(139, 92, 246, 0.4); }
+  to { box-shadow: 0 0 60px 8px rgba(139, 92, 246, 0.4); }
+}
+
+#three {
+  width: 80%;
+  animation: three 6s ease-in-out infinite alternate;
+}
+
+@keyframes three {
+  from { box-shadow: 0 0 100px 10px rgba(139, 92, 246, 0.4); }
+  to { box-shadow: 0 0 60px 8px rgba(139, 92, 246, 0.4); }
+}
+
+#four {
+  width: 70%;
+  animation: four 5s ease-in-out infinite alternate;
+}
+
+@keyframes four {
+  from { box-shadow: 0 0 100px 10px rgba(139, 92, 246, 0.4); }
+  to { box-shadow: 0 0 60px 8px rgba(139, 92, 246, 0.4); }
+}
+
+#five {
+  width: 60%;
+  animation: five 4s ease-in-out infinite alternate;
+}
+
+@keyframes five {
+  from { box-shadow: 0 0 100px 10px rgba(139, 92, 246, 0.4); }
+  to { box-shadow: 0 0 60px 8px rgba(139, 92, 246, 0.4); }
+}
+
+/* Estrelas do Hero */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-100%);
+  }
+}

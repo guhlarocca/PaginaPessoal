@@ -1,0 +1,2 @@
+// Backup do script original com a linha modificada
+setDisc(){this.disc={},this.disc.geometry=new ho(2,1,0,64,10,!0),this.disc.noiseTexture=this.noises.create(128,128),this.disc.material=new H_,this.disc.material.uniforms.uNoiseTexture.value=this.disc.noiseTexture,this.disc.material.uniforms.uInnerColor=this.commonUniforms.uInnerColor,this.disc.material.uniforms.uOuterColor=this.commonUniforms.uOuterColor,this.disc.mesh=new Qe(this.disc.geometry,this.disc.material),this.scenes.space.add(this.disc.mesh)}

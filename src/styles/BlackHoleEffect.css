@@ -1,0 +1,12 @@
+.black-hole-container {
+  pointer-events: none;
+  background-color: #0a192f;
+}
+
+.black-hole-container canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
