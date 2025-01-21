@@ -16,4 +16,15 @@ body
     position: fixed;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
+}
+
+@media screen and (max-width: 768px) {
+    .experience {
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

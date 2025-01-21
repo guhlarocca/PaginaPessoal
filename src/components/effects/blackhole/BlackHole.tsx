@@ -36,6 +36,14 @@ const BlackHole: React.FC = () => {
     const material = new THREE.ShaderMaterial(createBlackHoleShader());
     material.uniforms.uNoiseTexture.value = noiseTexture;
     const blackHole = new THREE.Mesh(geometry, material);
+    
+    // Ajuste para dispositivos móveis
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      const scale = window.innerWidth / window.innerHeight > 0.5 ? 1.5 : 1.2;
+      blackHole.scale.set(scale, scale, 1);
+    }
+    
     scene.add(blackHole);
 
     camera.position.z = 5;
@@ -54,7 +62,17 @@ const BlackHole: React.FC = () => {
 
     // Resize handler
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      const isMobile = window.innerWidth <= 768;
+      const aspectRatio = window.innerWidth / window.innerHeight;
+      
+      if (isMobile) {
+        const scale = aspectRatio > 0.5 ? 1.5 : 1.2;
+        blackHole.scale.set(scale, scale, 1);
+      } else {
+        blackHole.scale.set(1, 1, 1);
+      }
+      
+      camera.aspect = aspectRatio;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
