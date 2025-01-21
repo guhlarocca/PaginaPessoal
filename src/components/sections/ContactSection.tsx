@@ -46,7 +46,7 @@ const ContactSection = () => {
               className="pt-2"
             >
               <a
-                href="mailto:gustavo_larocca@hotmail.com"
+                href="mailto:guh.larocca@gmail.com"
                 className="inline-block px-8 py-4 text-lg font-mono border-2 border-[#28AAEB] text-[#28AAEB] rounded hover:bg-[#28AAEB]/10 transition-colors duration-300"
               >
                 Diga Olá

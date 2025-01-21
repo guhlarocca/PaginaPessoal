@@ -64,9 +64,9 @@ const AboutSection = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: i * 0.1 }}
-                      className="text-sm text-[#8892b0] flex items-center gap-2"
+                      className="flex items-center gap-2 text-[#8892b0]"
                     >
-                      <span className="text-purple-500">▹</span>
+                      <div className="w-1 h-1 rounded-full bg-[#28AAEB]" />
                       {tech}
                     </motion.li>
                   ))}

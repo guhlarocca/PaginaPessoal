@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import TimelineLine from "./TimelineLine";
 import SpaceShip from "./SpaceShip";
 import EnergyLine from "./EnergyLine";
+import StarField from "./StarField";
 
 // Lazy load components
 const HeroSection = lazy(() => import("./sections/HeroSection"));
@@ -18,12 +19,44 @@ const DataStream = lazy(() => import("./effects/DataStream"));
 
 // Loading component with improved animation
 const LoadingFallback = () => (
-  <div className="min-h-screen bg-space-dark flex items-center justify-center">
-    <div className="relative">
-      <div className="absolute -inset-4 bg-cosmic-gradient opacity-75 blur-lg animate-cosmic-pulse rounded-full" />
-      <div className="relative px-8 py-4 bg-space-light rounded-full shadow-cosmic">
-        <span className="text-starlight-bright font-mono">Carregando...</span>
-      </div>
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <StarField />
+    <div className="relative z-10">
+      <motion.div
+        className="relative px-8 py-4 rounded-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.span 
+          className="text-[#28AAEB] text-2xl font-mono"
+          animate={{ 
+            textShadow: [
+              "0 0 5px #28AAEB, 0 0 10px #28AAEB, 0 0 15px #28AAEB",
+              "0 0 10px #28AAEB, 0 0 20px #28AAEB, 0 0 30px #28AAEB",
+              "0 0 5px #28AAEB, 0 0 10px #28AAEB, 0 0 15px #28AAEB"
+            ]
+          }}
+          transition={{
+            duration: 0.9,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          Carregando
+          <motion.span
+            animate={{
+              opacity: [0, 1, 0]
+            }}
+            transition={{
+              duration: 0.9,
+              repeat: Infinity,
+              ease: "easeInOut",
+              times: [0, 0.5, 1]
+            }}
+          >...</motion.span>
+        </motion.span>
+      </motion.div>
     </div>
   </div>
 );

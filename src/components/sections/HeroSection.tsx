@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import TypewriterComponent from "typewriter-effect";
 import StarField from "../StarField";
 import Comets from "../Comets";
+import { Link } from "react-scroll";
 
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -326,17 +327,9 @@ const HeroSection = () => {
       <div className="relative z-30 w-full pointer-events-auto">
         {/* Mouse Follower */}
         <motion.div
-          className="cursor fixed top-0 left-0 pointer-events-none z-50"
           variants={variants}
+          className="cursor hidden lg:block fixed w-4 h-4 rounded-full pointer-events-none z-50"
           animate={cursorVariant}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            zIndex: 9999,
-            pointerEvents: 'none',
-            borderRadius: '50%',
-          }}
         />
 
         <div className="max-w-screen-xl mx-0 px-0">
