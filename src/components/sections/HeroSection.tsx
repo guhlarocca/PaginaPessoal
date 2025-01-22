@@ -82,8 +82,8 @@ const HeroSection = () => {
         }
         .experience {
           z-index: 1 !important;
-          top: 35vh !important;
-          height: 65vh !important;
+          top: 25vh !important;
+          height: 75vh !important;
         }
         .hero-content {
           text-align: left !important;
